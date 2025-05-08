@@ -15,11 +15,15 @@ const MovieList = ({ movies }) => {
 
     return (
         <div className="container">
-            <input 
-                placeholder="Enter movie name" 
-                value={searchTerm} 
-                onChange={handleSearchChange}
-            />
+            <h1 className="page-title">Cinema Experience</h1>
+            <div className="search-container">
+                <input 
+                    className="search-input"
+                    placeholder="Search for movies..." 
+                    value={searchTerm} 
+                    onChange={handleSearchChange}
+                />
+            </div>
             <div className="movies-grid">
                 {filteredMovies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} />

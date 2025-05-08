@@ -4,7 +4,11 @@ import MovieList from "./components/MovieList";
 
 function App() {
   return (
-    <MovieList movies={movies}></MovieList>
+    <div className="app-container">
+      <div className="fade-in">
+        <MovieList movies={movies} />
+      </div>
+    </div>
   );
 }
 

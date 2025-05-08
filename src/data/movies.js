@@ -6,8 +6,8 @@ export const movies = [
     genre: "Sci-Fi, Action",
     poster: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/YoHD9XEInc0",
-    date: "2023-03-20",
-    time: "18:00",
+    date: ["2023-03-20"],
+    time: ["18:00"],
     duration: "2h 28min",
     rating: 8.8
   },
@@ -18,8 +18,8 @@ export const movies = [
     genre: "Drama",
     poster: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/6hB3S9bIaco",
-    date: "2023-03-21",
-    time: "19:30",
+    date: ["2023-03-21"],
+    time: ["19:30"],
     duration: "2h 22min",
     rating: 9.3
   },
@@ -30,8 +30,8 @@ export const movies = [
     genre: "Action, Crime, Drama",
     poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/EXeTwQWrcwY",
-    date: "2023-03-22",
-    time: "20:00",
+    date: ["2023-03-22"],
+    time: ["20:00"],
     duration: "2h 32min",
     rating: 9.0
   },
@@ -42,8 +42,8 @@ export const movies = [
     genre: "Crime, Drama",
     poster: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/s7EdQ4FqbhY",
-    date: "2023-03-23",
-    time: "21:15",
+    date: ["2023-03-23"],
+    time: ["21:15"],
     duration: "2h 34min",
     rating: 8.9
   },
@@ -54,8 +54,8 @@ export const movies = [
     genre: "Drama, Romance",
     poster: "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/bLvqoHBptjg",
-    date: "2023-03-24",
-    time: "17:45",
+    date: ["2023-03-24"],
+    time: ["17:45"],
     duration: "2h 22min",
     rating: 8.8
   },
@@ -66,8 +66,8 @@ export const movies = [
     genre: "Action, Sci-Fi",
     poster: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
     trailer: "https://www.youtube.com/embed/vKQi3bBA1y8",
-    date: "2023-03-25",
-    time: "19:00",
+    date: ["2023-03-25"],
+    time: ["19:00"],
     duration: "2h 16min",
     rating: 8.7
   }
