@@ -1,11 +1,18 @@
 import './App.css';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
 import { movies } from './data/movies';
-import MovieList from "./components/MovieList";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="app-container">
-        <MovieList movies={movies} />
+        <Router>
+            <Routes>
+              <Route path="/" element={<Home movies={movies} />} />
+              <Route path="/booking/:movieId" element={<Booking />} />
+            </Routes>
+        </Router>
     </div>
   );
 }
