@@ -1,28 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/CinemaHall.css';
+import { BookingService } from '../services/BookingService';
 
-const CinemaHall = () => {
+const CinemaHall = ({ movieId, onSeatsChange }) => {
     const rows = 8;
     const seatsPerRow = 10;
 
-    // State to track selected seats
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [bookedSeats, setBookedSeats] = useState([]);
 
-    // Handle seat selection
+    useEffect(() => {
+        if (movieId) {
+            const booked = BookingService.getBookedSeats(movieId);
+            setBookedSeats(booked);
+        }
+    }, [movieId]);
+
+    useEffect(() => {
+        if (onSeatsChange) {
+            onSeatsChange(selectedSeats);
+        }
+    }, [selectedSeats, onSeatsChange]);
+
     const toggleSeatSelection = (row, seat) => {
         const seatId = `${row}-${seat}`;
 
-        // Check if the seat is already selected
+        if (bookedSeats.includes(seatId)) {
+            return;
+        }
+
         if (selectedSeats.includes(seatId)) {
-            // If selected, remove it from the array
             setSelectedSeats(selectedSeats.filter(id => id !== seatId));
         } else {
-            // If not selected, add it to the array
             setSelectedSeats([...selectedSeats, seatId]);
         }
     };
 
-    // Generate the cinema hall grid
     const renderSeats = () => {
         const seatRows = [];
 
@@ -32,11 +45,12 @@ const CinemaHall = () => {
             for (let seat = 1; seat <= seatsPerRow; seat++) {
                 const seatId = `${row}-${seat}`;
                 const isSelected = selectedSeats.includes(seatId);
+                const isBooked = bookedSeats.includes(seatId);
 
                 seats.push(
                     <div 
                         key={seatId} 
-                        className={`seat ${isSelected ? 'selected' : ''}`}
+                        className={`seat ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : ''}`}
                         onClick={() => toggleSeatSelection(row, seat)}
                     >
                         {seat}
@@ -55,7 +69,6 @@ const CinemaHall = () => {
         return seatRows;
     };
 
-    // Format selected seats for display
     const formatSelectedSeats = () => {
         if (selectedSeats.length === 0) {
             return "No seats selected";
