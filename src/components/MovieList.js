@@ -15,12 +15,12 @@ const MovieList = ({ movies }) => {
 
     return (
         <div className="container">
-            <h1 className="page-title">Cinema Experience</h1>
+            <h1 className="page-title">Cinema</h1>
             <div className="search-container">
-                <input 
+                <input
                     className="search-input"
                     placeholder="Search for movies..." 
-                    value={searchTerm} 
+                    value={searchTerm}
                     onChange={handleSearchChange}
                 />
             </div>

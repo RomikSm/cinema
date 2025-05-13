@@ -1,17 +1,21 @@
 .card {
   background-color: var(--card-color);
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: var(--transition);
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  border: var(--card-border);
+  backdrop-filter: blur(10px);
+  transform-origin: center bottom;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--card-hover-shadow);
 }
 
 .poster-container {
@@ -19,6 +23,25 @@
   overflow: hidden;
   height: 0;
   padding-top: 100%;
+  box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.poster-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+  opacity: 0.7;
+  transition: var(--transition);
+  z-index: 1;
+  backdrop-filter: brightness(1.05);
+}
+
+.card:hover .poster-container::after {
+  opacity: 0.9;
 }
 
 .poster {
@@ -32,7 +55,7 @@
 }
 
 .card:hover .poster {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .content {
@@ -71,7 +94,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 4.5em; /* Fallback for non-WebKit browsers: 3 lines × 1.5 line-height */
+  max-height: 4.5em;
 }
 
 .details {
@@ -89,27 +112,77 @@
 }
 
 .rating {
-  font-weight: 600;
-  color: var(--accent-color);
-  background-color: rgba(255, 87, 34, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-weight: 700;
+  color: white;
+  background-color: var(--accent-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.rating::before {
+  content: '★';
+  margin-right: 4px;
+  font-size: 0.9em;
 }
 
 .book-button {
-  background-color: var(--primary-color);
+  background: var(--button-gradient);
   color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: var(--button-radius);
+  font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   transition: var(--transition);
   width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .book-button:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.book-button:hover::before {
+  transform: translateX(100%);
+}
+
+.book-button::after {
+  content: '→';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.book-button:hover::after {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
 }
