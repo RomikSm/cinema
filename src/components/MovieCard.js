@@ -1,8 +1,14 @@
 import React from 'react';
 import '../styles/MovieCard.css';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
     const { id, title, description, genre, poster, date, time, rating } = movie;
+    const navigate = useNavigate();
+
+    const handleBooking = () => {
+        navigate(`/booking/${id}`);
+    };
 
     return (
         <div className="card">
@@ -23,6 +29,7 @@ const MovieCard = ({ movie }) => {
                     </div>
                     <button
                         className="book-button"
+                        onClick={handleBooking}
                     >
                         Book Now
                     </button>
